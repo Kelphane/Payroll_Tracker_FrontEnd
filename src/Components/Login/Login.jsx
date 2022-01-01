@@ -28,13 +28,13 @@ const Login = (props) => {
         event.preventDefault();
 
         try {
-            /* let response = await axios.post("http://localhost:5000/api/user/login", 
+            let response = await axios.post("http://localhost:5000/api/user/login", 
                 {
                     username: credentials.username,
                     password: credentials.password
                 }
-            ); */
-            console.log("Submitted Credentials!");
+            );
+            window.localStorage.setItem('token', response.data);
         } catch (error) {
             return console.log("Couldn't Login User: ", error)
         }
