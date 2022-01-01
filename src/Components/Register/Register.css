@@ -6,10 +6,10 @@
     border-radius: 10%;
     background: linear-gradient(90deg, blue, lightskyblue);
     box-shadow: -6px 6px rgb(157, 172, 187);
-    height: 60vh;
-    width: 60vw;
-    margin-left: 20vw;
-    margin-right: 20vw;
+    height: 70vh;
+    width: 70vw;
+    margin-left: 15vw;
+    margin-right: 15vw;
 }
 
 .register h1{
@@ -22,6 +22,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+    height: 8%;
     width: 80%;
     margin-left: 10%;
     margin-right: 10%;
@@ -39,4 +40,10 @@
     width: 20%;
     margin-left: 40%;
     margin-right: 40%;
+}
+
+.register .link{
+    color: white;
+    font-size: 13px;
+    text-align: center;
 }

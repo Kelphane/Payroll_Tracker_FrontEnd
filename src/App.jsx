@@ -10,7 +10,6 @@ import Register from "./Components/Register/Register";
 const App = () => {
     return(
         <div>
-            <h1>Hello World!</h1>
             <NavBar />
             <Routes>
                 <Route path="/login" element={<Login />}/>
