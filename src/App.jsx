@@ -8,6 +8,7 @@ import NavBar from "./Components/NavBar/NavBar";
 import Login from "./Components/Login/Login";
 import Register from "./Components/Register/Register";
 import Home from "./Components/Home/Home";
+import Employees from "./Components/Employees/Employees";
 
 const App = () => {
     const [userId, setUserId] = useState(" ");
@@ -29,6 +30,7 @@ const App = () => {
                 <Route path="/login" element={<Login />}/>
                 <Route path="/register" element={<Register />} />
                 <Route path="/home" element={<Home />} />
+                <Route path="/employees" element={<Employees userId={userId} />} />
             </Routes>
         </div>
     );

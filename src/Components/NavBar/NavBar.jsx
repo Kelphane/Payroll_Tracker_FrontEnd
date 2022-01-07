@@ -24,6 +24,7 @@ const NavBar = ({ userId }) => {
         return(
             <nav className="nav-bar">
                 <Link to="/home" className="nav-link">Home</Link>
+                <Link to="/employees" className="nav-link">Manage Employees</Link>
                 <button className="nav-link" onClick={handleLogout}>Logout</button>
             </nav>
         );
