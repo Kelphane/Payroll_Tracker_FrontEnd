@@ -5,6 +5,7 @@ import "./Register.css";
 
 const Register = () => {
     const [credentials, setCredentials] = useState({username: "", password: ""});
+    const [invalidMessage, setInvalidMessage] = useState(false);
 
     const handleChange = (event) => {
         let newUser = {};
@@ -33,12 +34,11 @@ const Register = () => {
                     password: credentials.password
                 }
             );
-            setCredentials({
-                username: "",
-                password: ""
-            });
+            
+            window.location = "/login";
         } catch (error) {
             console.log(error);
+            if(error.message.includes("400")) setInvalidMessage(true);
         }
     }
 
@@ -64,6 +64,7 @@ const Register = () => {
                 />
             </label>
             <button>Register</button>
+            {invalidMessage && <p>Invalid Username and Password!</p>}
             <Link to="/login" className="link">Already Have an Account?</Link>
         </form>
     );
