@@ -16,10 +16,9 @@ const App = () => {
 
     const getToken = () => {
         let token = window.localStorage.getItem('token');
-        console.log(token);
         if(token){
-            /* let userId = jwtDecode(token);
-            console.log(userId); */
+            let id = jwtDecode(token).id;
+            setUserId(id);
         }
     }
     
