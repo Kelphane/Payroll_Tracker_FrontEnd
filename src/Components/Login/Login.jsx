@@ -4,9 +4,11 @@ import axios from "axios";
 import "./Login.css";
 
 const Login = (props) => {
+    /* STATE */
     const [credentials, setCredentials] = useState({username: "", password: ""});
     const [invalidMessage, setInvalidMessage] = useState(false);
 
+    /* Saves the Changing User Input to State: */
     const handleChange = (event) => {
         let input = {username: credentials.username, password: credentials.password};
 
@@ -25,6 +27,7 @@ const Login = (props) => {
         setCredentials(input);
     };
 
+    /* Logs the User in and Redirects User to Home Page */
     const handleLogin = async (event) => {
         event.preventDefault();
 
@@ -36,7 +39,7 @@ const Login = (props) => {
                 }
             );
             window.localStorage.setItem('token', response.data);
-            //window.location(/home);
+            window.location = "/home";
         } catch (error) {
             if(error.message.includes("400")) setInvalidMessage(true);
             console.log(error);
