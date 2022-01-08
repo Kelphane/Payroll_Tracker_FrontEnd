@@ -1,4 +1,8 @@
+/* Imports */
 import React, { useState, useEffect } from "react";
+
+/* CSS Imports */
+import "./CreateEmployee.css";
 
 const CreateEmployee = (props) => {
     const [employee, setEmployee] = useState({
@@ -90,44 +94,79 @@ const CreateEmployee = (props) => {
     }
 
     return(
-        <form onSubmit={handleSubmit}>
-            <label htmlFor="employeeName">Name:</label>
-            <input type="text" id="employeeName" name="name" onChange={handleChange} />
+        <form onSubmit={handleSubmit} className="employee-form">
+            <div>
+                <label>
+                    Name:
+                    <input type="text" name="name" onChange={handleChange} />
+                </label>
+                
 
-            <label type="number" htmlFor="employeePay">Pay Rate:</label>
-            <input id="employeePay" name="payrate" onChange={handleChange} />
+                <label>
+                    Pay Rate:
+                    <input type="number" name="payrate" onChange={handleChange} />
+                </label>
+               
 
-            <label type="number" htmlFor="employeeOT">Over Time Rate:</label>
-            <input id="employeeOT" name="overtime" onChange={handleChange} />
+                <label  htmlFor="employeeOT">
+                    Over Time:
+                    <input type="number" name="overtime" onChange={handleChange} />
+                </label>
+            </div>
 
-            <h5>Status</h5>
-            <input type="radio" id="available" name="status" value="available" onChange={handleChange} />
-            <label htmlFor="available">Available</label>
+            <div>
+                <h5>Status</h5>
+                <input type="radio" id="available" name="status" value="available" onChange={handleChange} />
+                <label htmlFor="available">Available</label>
 
-            <input type="radio" id="unavailable" name="status" value="unavailable" onChange={handleChange} />
-            <label htmlFor="unavailable">Unavailable</label>
+                <input type="radio" id="unavailable" name="status" value="unavailable" onChange={handleChange} />
+                <label htmlFor="unavailable">Unavailable</label>
+            </div>
 
-            <h5>Days Available to Work</h5>
-            <input type="checkbox" id="mon" name="daysavail" value="mon" onChange={handleChange} />
-            <label htmlFor="mon">Monday</label>
+            <div>
+                <h5>Days Available to Work</h5>
+                
+                <label>
+                    Monday
+                    <input type="checkbox" name="daysavail" value="mon" onChange={handleChange} />
+                </label>
 
-            <input type="checkbox" id="tue" name="daysavail" value="tue" onChange={handleChange} />
-            <label htmlFor="tue">Tuesday</label>
+                
+                <label>
+                    Tuesday
+                    <input type="checkbox" name="daysavail" value="tue" onChange={handleChange} />
+                </label>
 
-            <input type="checkbox" id="wed" name="daysavail" value="wed" onChange={handleChange} />
-            <label htmlFor="wed">Wednesday</label>
+                
+                <label>
+                    Wednesday
+                    <input type="checkbox" name="daysavail" value="wed" onChange={handleChange} />
+                </label>
 
-            <input type="checkbox" id="thu" name="daysavail" value="thu" onChange={handleChange} />
-            <label htmlFor="thu">Thursday</label>
+                
+                <label>
+                    Thursday
+                    <input type="checkbox" name="daysavail" value="thu" onChange={handleChange} />
+                </label>
 
-            <input type="checkbox" id="fri" name="daysavail" value="fri" onChange={handleChange} />
-            <label htmlFor="fri">Friday</label>
+                
+                <label>
+                    Friday
+                    <input type="checkbox" name="daysavail" value="fri" onChange={handleChange} />
+                </label>
 
-            <input type="checkbox" id="sat" name="daysavail" value="sat" onChange={handleChange} />
-            <label htmlFor="sat">Saturday</label>
+                
+                <label>
+                    Saturday
+                    <input type="checkbox" name="daysavail" value="sat" onChange={handleChange} />
+                </label>
 
-            <input type="checkbox" id="sun" name="daysavail" value="sun" onChange={handleChange} />
-            <label htmlFor="sun">Sunday</label>
+                
+                <label>
+                    Sunday
+                    <input type="checkbox" name="daysavail" value="sun" onChange={handleChange} />
+                </label>
+            </div>
 
             <button type="submit">Create</button>
         </form>
