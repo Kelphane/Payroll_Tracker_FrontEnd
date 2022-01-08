@@ -12,7 +12,6 @@ import Employees from "./Components/Employees/Employees";
 
 const App = () => {
     const [userId, setUserId] = useState(" ");
-
     useEffect(() => {getToken();});
 
     const getToken = () => {

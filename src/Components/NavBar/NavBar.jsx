@@ -1,4 +1,5 @@
-import React, { useEffect } from "react";
+/* Imports */
+import React from "react";
 import { Link } from "react-router-dom";
 
 /* CSS Import */
