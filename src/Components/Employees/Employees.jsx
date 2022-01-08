@@ -4,6 +4,7 @@ import axios from "axios";
 
 /* Component Imports */
 import EmployeeNav from "./EmployeeNav/EmployeeNav";
+import CreateEmployee from "./CreateEmployee/CreateEmployee";
 
 const Employees = ({ userId }) => {
 
@@ -31,7 +32,7 @@ const Employees = ({ userId }) => {
     return(
         <div>
             <EmployeeNav getNavVariable={getNavVariable}/>
-            {nav === "create" && <h1>Create Employee!</h1>}
+            {nav === "create" && <CreateEmployee userId={userId} />}
             {nav === "all" && <h1>All Employee!</h1>}
         </div>
     );
