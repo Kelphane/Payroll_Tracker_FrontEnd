@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 
-const CreateEmployee = ({ userId }) => {
+const CreateEmployee = (props) => {
     const [employee, setEmployee] = useState({
         name: "",
         payrate: 0,
         overtime: 0,
-        status: "available",
+        status: "",
         daysavail: []
     });
 
@@ -82,11 +82,15 @@ const CreateEmployee = ({ userId }) => {
                 }
             });
         }
+    }
 
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        props.createEmployee(employee);
     }
 
     return(
-        <form>
+        <form onSubmit={handleSubmit}>
             <label htmlFor="employeeName">Name:</label>
             <input type="text" id="employeeName" name="name" onChange={handleChange} />
 
@@ -124,6 +128,8 @@ const CreateEmployee = ({ userId }) => {
 
             <input type="checkbox" id="sun" name="daysavail" value="sun" onChange={handleChange} />
             <label htmlFor="sun">Sunday</label>
+
+            <button type="submit">Create</button>
         </form>
     );
 }

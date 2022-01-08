@@ -29,10 +29,31 @@ const Employees = ({ userId }) => {
         setNav(navigation);
     }
 
+    /* Creates a New Employee in DB */
+    const createEmployee = async (employee) => {
+        let id = userId;
+
+        try {
+            let response = await axios.post(`http://localhost:5000/api/employee`, 
+                {
+                    userId: id,
+                    name: employee.name,
+                    payRate: employee.payrate,
+                    overTime: employee.overtime,
+                    status: employee.status,
+                    daysAvail: employee.daysavail
+                }
+            );
+            console.log(response);
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
     return(
         <div>
             <EmployeeNav getNavVariable={getNavVariable}/>
-            {nav === "create" && <CreateEmployee userId={userId} />}
+            {nav === "create" && <CreateEmployee createEmployee={createEmployee} />}
             {nav === "all" && <h1>All Employee!</h1>}
         </div>
     );
