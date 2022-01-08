@@ -44,7 +44,6 @@ const Employees = ({ userId }) => {
                     daysAvail: employee.daysavail
                 }
             );
-            console.log(response);
         } catch (error) {
             console.log(error);
         }
@@ -53,8 +52,8 @@ const Employees = ({ userId }) => {
     return(
         <div>
             <EmployeeNav getNavVariable={getNavVariable}/>
-            {nav === "create" && <CreateEmployee createEmployee={createEmployee} />}
             {nav === "all" && <h1>All Employee!</h1>}
+            {nav === "create" && <CreateEmployee createEmployee={createEmployee} />}
         </div>
     );
 }

@@ -1,4 +1,8 @@
+/* Imports */
 import React from "react";
+
+/* CSS Import */
+import "./EmployeeNav.css";
 
 const EmployeeNav = (props) => {
 
@@ -7,9 +11,9 @@ const EmployeeNav = (props) => {
     }
     
     return(
-        <nav>
-            <button name="create" onClick={handleClick}>Create Employee</button>
+        <nav className="employee-nav">
             <button name="all" onClick={handleClick}>All Employees</button>
+            <button name="create" onClick={handleClick}>Create Employee</button>
         </nav>
     );
 }
