@@ -5,36 +5,19 @@ import axios from "axios";
 /* Component Imports */
 import EmployeeNav from "./EmployeeNav/EmployeeNav";
 import CreateEmployee from "./CreateEmployee/CreateEmployee";
+import EmployeeDisplay from "./EmployeeDisplay/EmployeeDisplay";
 
 const Employees = ({ userId }) => {
 
-    /* Employee List Related Functions */
-    const [employeeList, setEmployeeList] = useState();
+    /* STATE */
     const [nav, setNav] = useState("all");
-
-    useEffect(() => {getEmployees();}, []);
-
-    /* GETS All Employees by User ID */
-    const getEmployees = async () => {
-        try {
-            let response = await axios.get(`http://localhost:5000/api/employee/user/${userId}`);
-            setEmployeeList(response.data);
-        } catch (error) {
-            console.log(error);
-        }
-    }
-
-    /* Gets Nav Variable */
-    const getNavVariable = (navigation) => {
-        setNav(navigation);
-    }
 
     /* Creates a New Employee in DB */
     const createEmployee = async (employee) => {
         let id = userId;
 
         try {
-            let response = await axios.post(`http://localhost:5000/api/employee`, 
+            await axios.post(`http://localhost:5000/api/employee`, 
                 {
                     userId: id,
                     name: employee.name,
@@ -49,10 +32,15 @@ const Employees = ({ userId }) => {
         }
     }
 
+    /* Gets Nav Variable */
+    const getNavVariable = (navigation) => {
+        setNav(navigation);
+    }
+
     return(
         <div>
             <EmployeeNav getNavVariable={getNavVariable}/>
-            {nav === "all" && <h1>All Employee!</h1>}
+            {nav === "all" && <EmployeeDisplay userId={userId} />}
             {nav === "create" && <CreateEmployee createEmployee={createEmployee} />}
         </div>
     );
