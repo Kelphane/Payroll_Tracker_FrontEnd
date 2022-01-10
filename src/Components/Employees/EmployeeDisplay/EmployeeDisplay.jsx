@@ -2,7 +2,11 @@
 import React, { useState, useEffect} from "react";
 import axios from "axios";
 
+/* Component Imports */
+import EmployeeCard from "../EmployeeCard/EmployeeCard";
+
 const EmployeeDisplay = ({ userId }) => {
+    
     /* STATE */
     const [employeeList, setEmployeeList] = useState();
 
@@ -29,7 +33,7 @@ const EmployeeDisplay = ({ userId }) => {
 
     return(
         <div>
-            {validateList() && <h1>Success!</h1>}
+            {validateList() && <EmployeeCard employeeList={employeeList} />}
         </div>
     );
 }
